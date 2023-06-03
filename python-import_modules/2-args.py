@@ -9,8 +9,7 @@ if __name__ == "__main__":
         print("{} arguments.".format(arg_count))
     elif arg_count == 1:
         print("{} argument:".format(arg_count), end="\n")
-        for i, arg in enumerate(args, start=1):
-            print("{}: {}".format(i, arg), end="\n")
+        print(f"{arg_count}:", "".join(args), end="\n")
     else:
         print("{} arguments: ".format(arg_count))
         for i, arg in enumerate(args, start=1):
