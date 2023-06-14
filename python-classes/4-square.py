@@ -28,12 +28,7 @@ class Square:
     def size(self, value):
         """
         Sets the value of the private instance attribute 'size'.
-        Args:
-            value: The value to set for 'size'.
-                Raises:
-                    TypeError: If 'value' is not an integer.
-                    ValueError: If 'value' is less than 0.
-        """
+                """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
