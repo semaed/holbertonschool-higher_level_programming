@@ -14,9 +14,7 @@ class Square:
     def __init__(self, size=0):
         """
         Initializes a new instance of Square with 'size' as an attribute.
-        Args:
-            size: The size of the new square instance. Defaults to 0.
-        """
+                """
         self.size = size
 
     @property
