@@ -23,9 +23,7 @@ class Square:
     def size(self):
         """
         Returns the value of the private instance attribute 'size'.
-        Returns:
-            The value of 'size'.
-        """
+                """
         return self.__size
 
     @size.setter
@@ -47,9 +45,7 @@ class Square:
     def area(self):
         """
         Returns the current square area.
-        Returns:
-            The area of the square.
-        """
+                """
         return self.size ** 2
 
     def my_print(self):
