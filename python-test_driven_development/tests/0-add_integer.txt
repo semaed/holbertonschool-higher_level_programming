@@ -1,3 +1,5 @@
+>>> import sys
+>>> sys.path.append('.')
 >>> from add_integer import add_integer
 >>> add_integer(1, 2)
 3
@@ -13,3 +15,4 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
+"""
