@@ -68,7 +68,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns a string 
+        Returns a string
         """
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -76,6 +76,6 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string 
+        Returns a string
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines a class Rectangle 
+This module defines a class Rectangle
 """
 
 
@@ -68,7 +68,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns a string 
+        Returns a string
         """
         if self.__width == 0 or self.__height == 0:
             return ""
