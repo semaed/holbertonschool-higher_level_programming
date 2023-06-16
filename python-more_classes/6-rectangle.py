@@ -7,7 +7,7 @@ This module defines a class Rectangle
 class Rectangle:
     """
     This class defines a Rectangle
-    """
+    """..
 
     # Public class attribute initialized to 0
     number_of_instances = 0
