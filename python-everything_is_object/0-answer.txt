@@ -1,1 +1,1 @@
-Print(type)
+type
