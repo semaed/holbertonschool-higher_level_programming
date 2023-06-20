@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Module that contains a class BaseGeometry,
-a class Rectangle, and a class Square"""
+"""Module that contains a class BaseGeometry and a class Rectangle"""
 
 
 class BaseGeometry:
@@ -46,7 +45,6 @@ class Square(Rectangle):
         self.integer_validator("size", size)
         super().__init__(size, size)
 
-    def __str__(self):
-        """Method that returns the square description"""
-        return "[Square] {}/{}".format(self._Rectangle__width,
-                                       self._Rectangle__height)
+    def area(self):
+        """Method that returns the area of the square"""
+        return super().area()
