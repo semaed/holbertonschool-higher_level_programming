@@ -10,4 +10,7 @@ def inherits_from(obj, a_class):
     of a class that inherited (directly or indirectly)
     from the specified class, otherwise False.
     """
-    return any(issubclass(base, a_class) for base in type(obj).__bases__)
+    if isinstance(obj, a_class) and type(obj) is not a_class:
+        return True
+    else:
+        return False
