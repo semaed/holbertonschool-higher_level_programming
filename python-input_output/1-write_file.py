@@ -9,7 +9,7 @@ def write_file(filename="", text=""):
     Function that writes a strin into (UTF8)
     and returns number or characters
     written
-    it to stdout.        
+    it to stdout.
     """
     with open(filename, 'w') as f:
         return f.write(text)
