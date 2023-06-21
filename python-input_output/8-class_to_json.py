@@ -1,14 +1,8 @@
 #!/usr/bin/python3
-"""
-This module contains a function that
-returns a dictionay description with simple
-data structure for JSOn serialization.
-"""
+''' Module n dictionary'''
 
 
-def get_json_description(obj):
-    """
-    Returns a dictionary
-     fo JSON serialization.
-    """
+def class_to_json(obj):
+    '''returns the dictionary description
+    with simple data structure '''
     return obj.__dict__
