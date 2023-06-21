@@ -27,3 +27,8 @@ try:
     print(type(s_my_set))
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
+
+data = [1, 2, 3, "Holberton"]
+s_data = to_json_string(data)
+print(s_data)
+print(type(s_data))
