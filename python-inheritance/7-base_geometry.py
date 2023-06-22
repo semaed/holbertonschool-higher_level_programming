@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """module for a class called Base Geometry with public instance methods
 """
