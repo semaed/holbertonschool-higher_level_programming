@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-"""module for a class called Base Geometry with public instance methods
-"""
+"""Module that contains a class BaseGeometry and a class Rectangle"""
 
 
 class BaseGeometry:
-    """class with exceptions
+    """A class with public instance methods area
+    and integer_validator
     """
 
     def area(self):
-        """defines the area of the geometry
-
-        Raises:
-            Exception: error message for user
-        """
+        """Method that raises an Exception with a message"""
         raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        """method that validates value"""
+        """Method that validates value"""
 
         if isinstance(name, str):
             if type(value) is not int:
