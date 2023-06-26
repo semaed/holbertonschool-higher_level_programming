@@ -167,28 +167,16 @@ class Rectangle(Base):
             "/" + y_str + " - " + width_str + "/" + height_str
         return rectangle_str
 
-    def update(self, *args):
-        """
-        Assigns an argument to each attribute
-
-        Args:
-            *args (ints): values to assign to id, width, height, x, y (in that
-              order)
-        """
-        attributes = ['id', 'width', 'height', 'x', 'y']
-        for attr, value in zip(attributes, args):
-            setattr(self, attr, value)
-
     def update(self, *args, **kwargs):
         """
         Assigns an argument to each attribute
 
         Args:
-            *args (ints): values to assign to id, width, height, x, y (in that order)
-            **kwargs: dictionary of attributes and their values to assign
+            *args (ints): values to assign to id, width, height, x, y (in that
+              order) **kwargs: dictionary of attributes and their values
+              to assign
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
-
         if args:
             for attr, value in zip(attributes, args):
                 setattr(self, attr, value)
