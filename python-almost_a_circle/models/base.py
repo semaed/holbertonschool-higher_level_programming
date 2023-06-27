@@ -57,3 +57,13 @@ class Base:
                 list_dicts.append(cls.to_dictionary(obj))
         with open(filename, 'w') as file:
             file.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns instance with attributes already set"""
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
