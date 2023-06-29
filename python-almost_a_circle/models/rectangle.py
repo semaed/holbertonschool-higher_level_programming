@@ -2,9 +2,8 @@
 """
 This module contains the Base class.
 """
-
-
 from models.base import Base
+set
 
 
 class Rectangle(Base):
