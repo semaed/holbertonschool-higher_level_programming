@@ -1,59 +1,66 @@
-import unittest
 from models.base import Base
-from models.square import Square
 from models.rectangle import Rectangle
-from io import StringIO
-from unittest import TestCase
-from unittest.mock import patch
+import unittest
 
 
-class TestBaseMethods(unittest.TestCase):
-    """ Suite to test Base class """
+class TestBase(unittest.TestCase):
+    """ Testing  initialization """
 
-    def setUp(self):
-        """ Method invoked for each test """
-        Base._Base__nb_objects = 0
+    def test_init(self):
+        new_obj = Base()
+        self.assertEqual(new_obj._Base__nb_objects, 1)
+        self.assertEqual(new_obj.id, 1)
+        new_obj_2 = Base()
+        self.assertEqual(new_obj_2._Base__nb_objects, 2)
+        self.assertEqual(new_obj_2.id, 2)
+        new_obj_3 = Base(89)
+        self.assertEqual(new_obj_3._Base__nb_objects, 2)
+        self.assertEqual(new_obj_3.id, 89)
 
-    def test_id(self):
-        """ Test assigned id """
-        new = Base(1)
-        self.assertEqual(new.id, 1)
+    """ Testing to json string """
 
-    def test_id_default(self):
-        """ Test default id """
-        new = Base()
-        self.assertEqual(new.id, 1)
+    def test_to_json_string(self):
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        dic = r1.to_dictionary()
+        json = Base.to_json_string([dic])
+        self.assertEqual(
+            json, '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}]')
 
-    def test_id_nb_objects(self):
-        """ Test nb object attribute """
-        new = Base()
-        new2 = Base()
-        new3 = Base()
-        self.assertEqual(new.id, 1)
-        self.assertEqual(new2.id, 2)
-        self.assertEqual(new3.id, 3)
+    def test_to_json_empty(self):
+        json = Base.to_json_string([])
+        self.assertEqual(json, '[]')
 
-    def test_id_mix(self):
-        """ Test nb object attributes and assigned id """
-        new = Base()
-        new2 = Base(1024)
-        new3 = Base()
-        self.assertEqual(new.id, 1)
-        self.assertEqual(new2.id, 1024)
-        self.assertEqual(new3.id, 2)
+    def test_to_json_none(self):
+        json = Base.to_json_string(None)
+        self.assertEqual(json, '[]')
 
-    def test_string_id(self):
-        """ Test string id """
-        new = Base('1')
-        self.assertEqual(new.id, '1')
+    """ Testing from json to string """
 
-    def test_more_args_id(self):
-        """ Test passing more args to init method """
-        with self.assertRaises(TypeError):
-            new = Base(1, 1)
+    def test_json_srting(self):
+        json = Base.from_json_string(None)
+        self.assertEqual(json, [])
 
-    def test_access_private_attrs(self):
-        """ Test accessing to private attributes """
-        new = Base()
-        with self.assertRaises(AttributeError):
-            new.__nb_objects
+    def test_json_str(self):
+        json = Base.from_json_string("[]")
+        self.assertEqual(json, [])
+
+    def test_json_str_good(self):
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_li_input = Base.to_json_string(list_input)
+        json_output = Base.from_json_string(json_li_input)
+        self.assertIsInstance(json_output, list)
+
+    def test_json_str_empty(self):
+        json = Base.from_json_string(None)
+        self.assertEqual(json, [])
+
+    def test_json_str_empty_2(self):
+        json = Base.from_json_string("[]")
+        self.assertEqual(json, [])
+
+
+if __name__ == '__main__':
+    unittest.main()
