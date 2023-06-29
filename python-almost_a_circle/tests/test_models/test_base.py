@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Module for test Base class """
 import unittest
 from models.base import Base
 import json

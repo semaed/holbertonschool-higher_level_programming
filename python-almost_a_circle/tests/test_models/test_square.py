@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Module for test Square class """
 import unittest
 from models.square import Square
 

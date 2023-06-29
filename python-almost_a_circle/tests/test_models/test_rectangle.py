@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Module for test Rectangle class """
 import unittest
 from models.rectangle import Rectangle
 
