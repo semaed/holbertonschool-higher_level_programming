@@ -2,7 +2,11 @@
 """ Module for test Base class """
 import unittest
 from models.base import Base
-import json
+from models.square import Square
+from models.rectangle import Rectangle
+from io import StringIO
+from unittest import TestCase
+from unittest.mock import patch
 
 
 class TestBase(unittest.TestCase):
