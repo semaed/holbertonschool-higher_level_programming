@@ -1,14 +1,8 @@
--- lists the `score` and number of occurances with each score with 'number'
+-- Script that lists the number of records
 
--- displays this data sorted by number in descending order
+-- with the same score in the table second_table of
 
---
-
--- score   number
-
--- 10  2
-
--- 8   1
+-- the database hbtn_0c_0 in your MySQL server
 
 SELECT
     score,

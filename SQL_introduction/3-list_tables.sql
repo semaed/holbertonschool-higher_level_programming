@@ -1,5 +1,5 @@
--- list all tables in database passed as argument
+-- Script that lists all the tables ADD
 
--- cat [filename] | mysql -hlocalhost -uroot -p mysql
+-- of a database in your MySQL server
 
 SHOW tables;

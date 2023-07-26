@@ -1,7 +1,7 @@
--- computes the score average of all records in the table
+-- Script that computes the score average of
 
--- result column name should be 'average'
+-- all records in the table second_table of the database
 
--- database name will be passed as an argument of the mysql command
+-- hbtn_0c_0 in your MySQL server
 
 SELECT AVG(score) AS 'average' FROM second_table;

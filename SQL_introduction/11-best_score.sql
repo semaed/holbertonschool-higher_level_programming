@@ -1,12 +1,8 @@
--- list all records with [score >= 10] in descending order
+-- Script that lists all records with
 
---
+-- a score >= 10 in the table second_table of
 
--- score   name
-
--- 14  Bob
-
--- 10  John
+-- the database hbtn_0c_0 in your MySQL server
 
 SELECT score, name
 FROM second_table

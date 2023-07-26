@@ -1,17 +1,7 @@
--- display score and name fields of data in table
+-- Script that lists all records of
 
--- ordered from greatest to least
+-- the table second_table of the database hbtn_0c_0
 
---
-
--- score   name
-
--- 14  Bob
-
--- 10  John
-
--- 8   George
-
--- 3   Alex
+-- in your MySQL server
 
 SELECT score, name FROM second_table ORDER BY score DESC;
