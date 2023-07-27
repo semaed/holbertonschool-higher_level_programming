@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-Module for listing states from the
-hbtn_0e_0_usa database with names starting with 'N'.
-"""
 
 import MySQLdb
 import sys
@@ -10,13 +6,17 @@ import sys
 
 def filter_states():
     """
-    Connects to the MySQL server and lists
-    all states with names starting with 'N'.
+    Connects to the MySQL server and lists all states with names starting with 'N'.
+
+    Arguments:
+        None (takes arguments from the command line)
+
+    Returns:
+        None
     """
     if len(sys.argv) != 4:
-        print("Usage: {} <mysql username> <mysql password> <database name>"
-              .format(
-                  sys.argv[0]))
+        print("Usage: {} <mysql username> <mysql password> <database name>".
+              format(sys.argv[0]))
         return
 
     username = sys.argv[1]
@@ -24,28 +24,28 @@ def filter_states():
     database_name = sys.argv[3]
 
     try:
-        # Connect to the MySQL server
+        """" Connect to the MySQL server """
         db = MySQLdb.connect(host="localhost",
                              port=3306,
                              user=username,
                              passwd=password,
                              db=database_name)
 
-        # Create a cursor object to execute queries
+        """ Create a cursor object to execute queries """
         cursor = db.cursor()
 
-        # Execute the SELECT query
+        """ Execute the SELECT query """
         cursor.execute(
             "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-        # Fetch all the rows
+        """ Fetch all the rows """
         rows = cursor.fetchall()
 
-        # Display the results
+        """ Display the results """
         for row in rows:
             print(row)
 
-        # Close the cursor and connection
+        """ Close the cursor and connection """
         cursor.close()
         db.close()
 
