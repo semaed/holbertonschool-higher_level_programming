@@ -41,11 +41,14 @@ def display_states(username, password, database, state_name):
 
 if __name__ == "__main__":
     """
-    Script entry point. Takes command-line arguments and calls display_states function.
+    Script entry point. Takes command-line arguments and calls display_states
+     function.
     """
     # Ensure the script is called with the correct number of arguments
     if len(sys.argv) != 5:
-        print("Usage: ./3-my_safe_filter_states.py <username> <password> <database> <state_name>")
+        print("Usage:", "./3-my_safe_filter_states.py", "<username>",
+              "<password>", "<database>", "<state_name>")
+
         sys.exit(1)
 
     # Get the arguments and call the display_states function
