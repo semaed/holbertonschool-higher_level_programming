@@ -1,52 +1,30 @@
 #!/usr/bin/python3
 """
-Get matching states from the states table in the database.
-Safe from MySQL injections.
-
-Parameters:
-    1. MySQL username
-    2. MySQL password
-    3. Database name
-    4. State name to match
-
-Usage:
-    ./script.py <username> <password> <database> <state_name>
+return matching states; safe from MySQL injections
+# http://bobby-tables.com/python
+parameters given to script: username, password, database, state to match
 """
 
 import MySQLdb
-import sys
+from sys import argv
 
+if __name__ == "__main__":
 
-def get_matching_states(username, password, database, state_name):
-    """
-    Fetch and display matching states from the states table.
-    """
-    # Connect to the database
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
+    # connect to database
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3])
 
-    # Create a cursor to execute queries using SQL; match the state name given
+    # create cursor to exec queries using SQL; match arg given
     cursor = db.cursor()
     sql_cmd = """SELECT *
                  FROM states
                  WHERE name=%s ORDER BY id ASC"""
-    cursor.execute(sql_cmd, (state_name,))
+    cursor.execute(sql_cmd, (argv[4],))
 
-    # Fetch and print the matching rows
     for row in cursor.fetchall():
         print(row)
-
     cursor.close()
     db.close()
-
-
-if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(
-            sys.argv[0]))
-        sys.exit(1)
-
-    # Get command-line arguments
-    username, password, database, state_name = sys.argv[1:]
-
-    get_matching_states(username, password, database, state_name)
