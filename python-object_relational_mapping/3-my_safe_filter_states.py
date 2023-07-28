@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-""" import required"""
+"""
+Script to display states from a MySQL database based on the given state_name.
+"""
 
 import MySQLdb
 import sys
@@ -8,13 +9,13 @@ import sys
 
 def display_states(username, password, database, state_name):
     """
-    Display states from the MySQL database based on the given state_name.
+    Display states from the MySQL database.
 
     Args:
-        username (str): MySQL username for database connection.
-        password (str): MySQL password for database connection.
-        database (str): Name of the MySQL database to connect to.
-        state_name (str): The name of the state to search for in the database.
+        username (str): MySQL username.
+        password (str): MySQL password.
+        database (str): Name of the MySQL database.
+        state_name (str): Name of the state to search for.
 
     Returns:
         None: The function prints the results directly to the console.
@@ -24,7 +25,7 @@ def display_states(username, password, database, state_name):
                          user=username, passwd=password, db=database)
     cursor = db.cursor()
 
-    # Use a parameterized query to avoid MySQL injection
+    # Use a parameterized query to prevent MySQL injection
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (state_name,))
 
