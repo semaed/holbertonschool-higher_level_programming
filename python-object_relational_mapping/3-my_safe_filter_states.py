@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+""" import required"""
+
 import MySQLdb
 import sys
 
