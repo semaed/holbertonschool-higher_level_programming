@@ -1,56 +1,34 @@
 #!/usr/bin/python3
 """
-Script to display states from a MySQL database based on the given state_name.
+Script that lists all states with a name starting with N
+from the databse hbtn_0e_0_usa
 """
-
 import MySQLdb
-import sys
+from sys import argv
 
+if __name__ == '__main__':
+    u_name = argv[1]
+    psw = argv[2]
+    base = argv[3]
+    search = argv[4]
 
-def display_states(username, password, database, state_name):
-    """
-    Display states from the MySQL database.
+    # Connecting to MySQL database
+    db = MySQLdb.connect(host="localhost", user=u_name,
+                         passwd=psw, db=base, port=3306)
 
-    Args:
-        username (str): MySQL username.
-        password (str): MySQL password.
-        database (str): Name of the MySQL database.
-        state_name (str): Name of the state to search for.
+    # Creating cursor object
+    cur = db.cursor()
 
-    Returns:
-        None: The function prints the results directly to the console.
-    """
-    # Establish a connection to the MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
-    cursor = db.cursor()
+    proc = ({search},)
+    # Executing MySql Query
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s"
+    cur.execute(query, proc)
 
-    # Use a parameterized query to prevent MySQL injection
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-
-    # Fetch and display the results
-    results = cursor.fetchall()
-    for row in results:
+    # Obtaining Query Result & prints the result in rows
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
 
-    # Close the cursor and connection
-    cursor.close()
+    # Clean Up
+    cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    """
-    Script entry point. Takes command-line arguments and calls display_states
-     function.
-    """
-    # Ensure the script is called with the correct number of arguments
-    if len(sys.argv) != 5:
-        print("Usage:", "./3-my_safe_filter_states.py", "<username>",
-              "<password>", "<database>", "<state_name>")
-
-        sys.exit(1)
-
-    # Get the arguments and call the display_states function
-    username, password, database, state_name = sys.argv[1:5]
-    display_states(username, password, database, state_name)
