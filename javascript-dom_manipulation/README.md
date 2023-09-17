@@ -6,8 +6,6 @@ This project focuses on JavaScript DOM (Document Object Model) manipulation, whe
 
 In this project, you will work on various tasks that involve altering the appearance and behavior of elements on an HTML page. Each task is designed to teach you specific aspects of DOM manipulation, from selecting elements to making changes based on user interactions.
 
-## Synopsis
-
 ### Project Requirements
 
 - **Allowed Editors:** You can use any text editors of your choice.
@@ -47,5 +45,8 @@ In this project, you will work on various tasks that involve altering the appear
 9. **8-script.js**
    - **Task:** Write a JavaScript script that fetches the translation of "hello" from `https://hellosalut.stefanbohacek.dev/?lang=fr` and displays it in the HTML element with id `hello`. Your script must work when imported from the `<head>` tag.
 
-Feel free to explore and complete each task to enhance your understanding of JavaScript DOM manipulation.
+### Authors
+
+- [Eduardo Figueroa] - [semaed](https://github.com/semaed)
+
 
