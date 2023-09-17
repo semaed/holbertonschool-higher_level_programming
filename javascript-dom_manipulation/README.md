@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="javascript-dom_manipulation/Banner/js.gif" width="650" height="200">
+  <img src="js.gif" width="650" height="200">
 </p>
 
 # JavaScript DOM Manipulation
