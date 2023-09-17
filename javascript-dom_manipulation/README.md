@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/semaed/holbertonschool-higher_level_programming/tree/master/javascript-dom_manipulation/Banner" width="650" height="200">
+  <img src="js.gif" width="650" height="200">
 </p>
 
 # JavaScript DOM Manipulation
