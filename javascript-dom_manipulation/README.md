@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="js.gif" width="650" height="200">
+</p>
+
 # JavaScript DOM Manipulation
 
 ## Introduction
