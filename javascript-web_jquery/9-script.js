@@ -1,3 +1,3 @@
-$.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data) {
-  $('div#hello').text(data.hello);
+$.get('https://hellosalut.stefanbohacek.dev/?lang=fr', function (fetch) {
+  $('#hello').text(fetch.hello);
 });
